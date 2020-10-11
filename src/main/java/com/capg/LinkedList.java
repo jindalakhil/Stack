@@ -1,8 +1,8 @@
 package com.capg;
 
 public class LinkedList {
-	private INode head;
-	private INode tail;
+	public INode head;
+	public INode tail;
 	
 	public LinkedList() {
 		this.head = null;
@@ -22,7 +22,7 @@ public class LinkedList {
 			
 			INode tempNode = this.head;
 			this.head = node;
-			this.head.setNext(tempNode);
+			node.setNext(tempNode);
 		}
 	}
 	
@@ -66,12 +66,20 @@ public class LinkedList {
 		node.setNext(temp);
 	}
 	
-	public void popLast() {
+	public INode popLast() {
 		INode temp = this.head;
 		while(temp.getNext()!=null && temp.getNext().getNext()!=null) {
 			temp=temp.getNext();
 		}
+		INode node = temp.getNext();
 		temp.setNext(null);
 		this.tail = temp;
+		return node;
+	}
+	
+	public INode pop() {
+		INode temp = this.head;
+		this.head = head.getNext();
+		return temp;
 	}
 }

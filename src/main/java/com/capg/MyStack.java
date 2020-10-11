@@ -2,22 +2,29 @@ package com.capg;
 
 public class MyStack {
 
-	private final LinkedList mll;
+	private final LinkedList linkedList;
 
 	public MyStack() {
-		this.mll = new LinkedList();
+		this.linkedList = new LinkedList();
 	}
 
 	public void push(INode node) {
-		mll.add(node);
+		linkedList.add(node);
 	}
 
 	public void print() {
-		mll.printNode();;
+		linkedList.printNode();;
+	}
+	
+	public INode peek() {
+		return linkedList.head;
+	}
+
+	public INode pop() {
+		return linkedList.pop();
 	}
 
 	public static void main(String[] args) {
 
 	}
-
 }
